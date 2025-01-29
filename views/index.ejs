@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--meta data-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Match</title>
+
+    <link rel="icon" type="image/x-icon" href="/resources/pictures/themes/logo.jpg"> <!--https://www.w3schools.com/html/html_favicon.asp-->
+
+    <!--link to spreadsheet-->
+    <link rel="stylesheet" href="/styles/global.css" />
+
+    <!--nice google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Lexend+Giga:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <div class="navbar">
+        <a href="/users/new" class="button-outlined-nav">create avatar</a>
+        <a href="/users" class="button-outlined-nav">community</a>
+        <a href="/" class="button-outlined-nav-on-page">home</a>
+    </div>
+</header>
+
+<main>
+    <audio class="starwars-theme" autoplay loop muted>
+        <source src="/resources/soundEffects/starwars_theme.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="flex-container">
+        <div>
+            <h1 class="outlined-text-title">StarMatch</h1>
+        </div>
+        <div>
+            <button type="button" class="button-outlined" onclick="showHideMessage(), soundLightsaber()" >How does it work?</button>
+        </div>
+        <div class="scrolling">
+            ↓ scroll down to see more ↓
+        </div>
+    </div>
+    <div class="flex-container-admins">
+        <%for (let adminIndex = 0; adminIndex < admins.length; adminIndex++) {%>
+            <div class="admin">
+                <img src="/resources/pictures/creators/<%=admins[adminIndex].name%>.jpg" class="admin-pics">
+                <span class="outlined-text"><%=`${admins[adminIndex].name} ${admins[adminIndex].surname}`%></span><br>
+                <span class="info-text">ID: <%=admins[adminIndex].studentID%></span>
+            </div>
+        <%}%>
+    </div>
+    <!--read-more introduction-->
+    <div class="flex-container-intro">
+        <div class="intro-message">
+            <img src="/resources/pictures/characters/yoda.png" style="width:300px"><br>
+            Welcome to StarMatch! Here you can create your own avatar and be matched with one Starwars character based on some questions by clicking the "create avatar" button. Also you can see the whole community by clicking the "community" button. To edit or delete your user, click "edit" or "delete" on your card in the community button or click on the card's picture to get an overview of your user data. PS: don't forget your password. You will need it, if you want to edit your data when pressing the buttons "edit" or "delete"! <br>
+            <button class="button-outlined" style="margin-top: 30px;" onclick="showHideMessage(), soundLightsaber()">Close</button>
+        </div>
+    </div>
+</main>
+
+<footer style="margin-bottom: 20px;">
+    <div class="footer-text">
+        &copy; DAFA 2025 - IMC Krems
+        <button class="mute-button" style="right: 0;">🔇</button>
+    </div>
+</footer>
+
+
+<!--Script must be at the end of the file!-->
+<!--link to javascript-->
+<script src="/scripts/global.js"></script>
+
+
+</body>
+</html>

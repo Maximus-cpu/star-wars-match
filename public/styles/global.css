@@ -1,0 +1,717 @@
+body {
+    display: flex;
+    flex-direction: column;
+
+    background-image: url('/resources/pictures/themes/background_space.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: fixed;
+    width: 90%;
+    top: 0;
+    z-index: 1000;
+
+    padding: 1rem 2rem;
+
+    background-color: transparent;
+}
+
+.footer-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    position: fixed;
+    width: 90%;
+    bottom: 0;
+    z-index: 1000;
+
+    margin: 15px;
+
+    background-color: transparent;
+    color: #878787;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+
+}
+
+.mute-button {
+    cursor: pointer;
+
+    border-style: none;
+    background-color: transparent;
+
+    font-size: 20px;
+}
+
+/* animation*/
+@keyframes jump {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.scrolling {
+    margin: 30px;
+
+    background-color: #080808;
+    color: #656565;
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+
+    animation: jump 1.5s ease-in-out infinite;
+}
+
+.outlined-text-title {
+    color:  #080808;
+    background-color: #080808;
+
+    text-shadow:
+            -4px -4px 0 rgb(227, 197, 0),    /* Top-left */
+            4px -4px 0 rgb(227, 197, 0),     /* Top-right */
+            -4px 4px 0 rgb(227, 197, 0),     /* Bottom-left */
+            4px 4px 0 rgb(227, 197, 0);      /* Bottom-right */
+
+    font-weight: bold;
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 900;
+
+    /*clamp(x, y, z) function for a responsive font size */
+    /*x... minimum size (e.g. on phone)*/
+    /*y... preffered size: 15% of the viewport width (responsive to screen size) */
+    /*z... maximum size (large laptops or desktop)*/
+
+    font-size: clamp(3rem, 15vw, 9rem);
+
+    margin-top:35vh;
+    padding: 5px;
+
+    animation: jump 1.5s ease-in-out infinite;
+}
+
+.outlined-text-title:hover {
+    text-shadow:
+            0 0 8px white,    /* Top-left */
+            0 0 8px white,     /* Top-right */
+            0 0 8px white,     /* Bottom-left */
+            0 0 8px white,      /* Bottom-right */
+            0 0 20px red,    /* Top-left */
+            0 0 20px red,     /* Top-right */
+            0 0 20px red,     /* Bottom-left */
+            0 0 20px red;      /* Bottom-right */
+}
+
+.outlined-text {
+    display: block;
+
+    margin-top: 70px;
+
+    color:  #080808;
+    background-color: #080808;
+
+    text-shadow:
+            -2px -2px 0 rgb(227, 197, 0),
+            2px -2px 0 rgb(227, 197, 0),
+            -2px 2px 0 rgb(227, 197, 0),
+            2px 2px 0 rgb(227, 197, 0);
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.outlined-text-glowing-r {
+    margin-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    color:  #080808;
+    background-color: #080808;
+
+    text-align: center;
+    text-shadow:
+            0 0 8px white,
+            0 0 8px white,
+            0 0 8px white,
+            0 0 8px white,
+            0 0 20px red,
+            0 0 20px red,
+            0 0 20px red,
+            0 0 20px red;
+
+    font-weight: bold;
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 90px;
+}
+
+.outlined-text-glowing-g {
+    margin-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    color:  #080808;
+    background-color: #080808;
+
+    text-align: center;
+    text-shadow:
+            0 0 8px white,
+            0 0 8px white,
+            0 0 8px white,
+            0 0 8px white,
+            0 0 20px green,
+            0 0 20px green,
+            0 0 20px green,
+            0 0 20px green;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 90px;
+}
+
+.outlined-text:hover {
+    text-shadow:
+            0 0 8px white,
+            0 0 8px white,
+            0 0 8px white,
+            0 0 8px white,
+            0 0 20px rgb(0, 126, 32),
+            0 0 20px rgb(0, 126, 32),
+            0 0 20px rgb(0, 126, 32),
+            0 0 20px rgb(0, 126, 32);
+}
+
+.info-text {
+    color: rgb(227, 197, 0);
+
+    font-size: 20px;
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+
+    height: 90vh;
+}
+
+.flex-container-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 90vh;
+
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+.flex-container-users-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 180px;
+    padding: 0 30px;
+
+    box-sizing: border-box;
+
+    min-height: calc(100vh - 200px); /* Ensures page fills the viewport minus the padding */
+}
+
+.flex-container-users {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    margin-top: 60px;
+    padding-bottom: 100px;
+
+    background-color: transparent;
+}
+
+.flex-container-create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 180px;
+    margin-bottom: 250px;
+    padding-left: 30px;
+}
+
+.flex-container-edit {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 70%);
+}
+
+.flex-container-admins {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    box-sizing: border-box;
+
+    margin-top: 60px;
+    padding-bottom: 100px;
+
+    min-height: calc(100vh - 260px);
+
+    background-color: transparent;
+}
+
+.admin {
+    height: 450px;
+    width: 250px;
+
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.admin-pics {
+    width:250px;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+}
+
+.user-pics, .user-pics-card {
+    width:250px;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(81, 81, 81);
+}
+
+.user-pics-card:hover {
+    cursor: pointer;
+}
+
+.button-outlined-nav {
+    cursor: pointer;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+
+    border-color: rgb(227, 197, 0);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+
+    color: rgb(227, 197, 0);
+    background-color: #080808;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.button-outlined-nav-on-page {
+    cursor: pointer;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+
+    border-color: #878787;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+
+    color: #878787;
+    background-color: #080808;
+}
+
+.button-outlined-nav:hover, .button-outlined-nav-on-page:hover {
+    color: white;
+    background-color: #080808;
+
+    border-color: white;
+    box-shadow: 0 0 15px red;
+
+    font-weight: 400;
+    text-shadow:
+            0 0 10px red,
+            0 0 10px red,
+            0 0 10px red,
+            0 0 10px red;
+
+    animation: jump 1.5s ease-in-out infinite;
+}
+
+.button-outlined-glow-r {
+    cursor: pointer;
+    text-decoration: none;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    border-color: white;
+
+    box-shadow: 0 0 15px red;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow:
+            0 0 10px red,    /* Top-left */
+            0 0 10px red,     /* Top-right */
+            0 0 10px red,     /* Bottom-left */
+            0 0 10px red;      /* Bottom-right */
+
+
+    color: white;
+    background-color: #080808;
+}
+
+.button-outlined-glow-r:hover {
+    animation: jump 1.5s ease-in-out infinite;
+}
+
+.button-outlined-glow-g {
+    cursor: pointer;
+    text-decoration: none;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 25px;
+    box-shadow: 0 0 15px green;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow:
+            0 0 10px green,
+            0 0 10px green,
+            0 0 10px green,
+            0 0 10px green;
+
+    color: white;
+    background-color: #080808;
+}
+
+.button-outlined-glow-g:hover {
+    animation: jump 1.5s ease-in-out infinite;
+}
+
+.button-outlined {
+    cursor: pointer;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+
+    border-color: rgb(227, 197, 0);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+
+    color: rgb(227, 197, 0);
+    background-color: #080808;
+}
+
+.button-outlined:hover {
+    border-color: white;
+    box-shadow: 0 0 15px red;
+
+    font-weight: 400;
+    text-shadow:
+            0 0 10px red,    /* Top-left */
+            0 0 10px red,     /* Top-right */
+            0 0 10px red,     /* Bottom-left */
+            0 0 10px red;      /* Bottom-right */
+
+    color: white;
+    background-color: #080808;
+
+    animation: jump 1.5s ease-in-out infinite;
+}
+
+.flex-container-intro {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 70%);
+}
+
+.flex-container-delete {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 70%);
+}
+
+
+.one-user-good-side {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+    border-radius: 20px;
+    border-color: white;
+    border-style: solid;
+    box-shadow: 0 0 15px rgb(30, 149, 0);
+
+    width: auto;
+    height: auto;
+    min-width: 320px;
+    min-height: 550px;
+    max-width: 90%;
+    max-height: 80vh;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+
+    background-color: rgb(22, 22, 22);
+    color: rgb(227, 197, 0);
+    overflow: hidden;
+
+    transition: transform 0.3s ease;
+}
+
+.one-user-dark-side {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+    border-radius: 20px;
+    border-color: white;
+    border-style: solid;
+    box-shadow: 0 0 15px red;
+
+    width: auto;
+    height: auto;
+    min-width: 320px;
+    min-height: 550px;
+    max-width: 90%;
+    max-height: 80vh;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+
+    background-color: rgb(22, 22, 22);
+    color: rgb(227, 197, 0);
+    overflow: hidden;
+
+    transition: transform 0.3s ease;
+}
+
+.one-user-dark-side:hover, .one-user-good-side:hover {
+    transform: scale(1.05);
+}
+
+.user-text-first {
+    display:inline-block;
+
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.user-text-second {
+    display:inline-block;
+
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.intro-message {
+    border-radius: 20px;
+    border-color: white;
+    border-style: solid;
+    box-shadow: 0 0 15px rgb(30, 149, 0);
+
+    width: auto;
+    height: auto;
+    min-width: 250px;
+    min-height: 150px;
+    max-width: 90%;
+    max-height: 80vh;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgb(22, 22, 22);
+    color: white;
+}
+
+.normal-text {
+    margin-bottom: 10px;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+
+    color: rgb(227, 197, 0);
+    background-color: #080808;
+}
+
+.input-field-y {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin-bottom: 25px;
+
+    border-color: rgb(227, 197, 0);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+
+    font-family: "Lexend Deca", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+
+    color: rgb(227, 197, 0);
+    background-color: #080808;
+}
+
+input[type="radio"] {
+    appearance: none; /* Removes the default styling */
+    -webkit-appearance: none; /* for Safari */
+
+    cursor: pointer;
+
+    width: 20px;
+    height: 20px;
+
+    margin-right: 20px;
+    margin-bottom: 15px;
+
+    border-style: solid;
+    border-radius: 50%;
+    border-color: rgb(227, 197, 0);
+    border-width: 2px;
+
+    background-color: #080808;
+}
+
+input[type="radio"]:checked {
+    box-shadow: 0 0 20px red;
+    border-color: white;
+
+    background-color: #ff0000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

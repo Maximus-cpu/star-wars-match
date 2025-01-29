@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--meta data-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%=user.name%> <%=user.surname%></title>
+
+    <link rel="icon" type="image/x-icon" href="/resources/pictures/themes/logo.jpg"> <!--https://www.w3schools.com/html/html_favicon.asp-->
+
+    <!--link to spreadsheet-->
+    <link rel="stylesheet" href="/styles/global.css" />
+
+    <!--nice google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Lexend+Giga:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<audio class="starwars-theme" autoplay loop muted>
+    <source src="/resources/soundEffects/starwars_theme.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<header>
+    <div class="navbar" style="position: absolute;">
+        <a href="/users/new" class="button-outlined-nav">create avatar</a>
+        <a href="/users" class="button-outlined-nav">community</a>
+        <a href="/" class="button-outlined-nav">home</a>
+    </div>
+</header>
+
+<main>
+    <div class="flex-container-create" style="margin-top: 70px;">
+        <div>
+            <form onsubmit="validateInputEdit(event)" action="/users/<%=user.id%>" method="post">
+                <h1 class="outlined-text" style="font-size: 40px;">Hi, <%=user.name%>!</h1><br>
+                <span class="normal-text">Here you can edit your data.</span>
+
+                <span class="normal-text">First Name: <%=user.name%><br>
+                    <span style="font-size:14px; color: red; display: none;" id="edit-first-name-invalid">*First name must have 2 letters and cannot contain numbers or special characters!<br></span>
+                </span><br>
+                <input name="name" type="text" class="input-field-y" placeholder="change first name..." id="edit-first-name"><br>
+
+                <span class="normal-text">Last Name: <%=user.surname%><br>
+                    <span style="font-size:14px; color: red; display: none;" id="edit-last-name-invalid">*Last name must have 2 letters and cannot contain numbers or special characters!<br></span>
+                </span><br>
+                <input name="surname" type="text" class="input-field-y" placeholder="change last name..." id="edit-last-name"><br>
+
+                <span class="normal-text"> Change Password: <br>
+                    <span style="font-size:14px; color: red; display: none;" id="edit-password-invalid">*Password must contain at least two special characters and be 8 characters long!<br></span>
+                </span><br>
+                <input type="password" id="edit-password" name="password" class="input-field-y" placeholder="change password..."><br>
+
+                <button type="submit" class="button-outlined" style="margin-top: 30px;" onclick="soundLightsaber()" >Save</button>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<footer style="margin-bottom: 20px;">
+    <div class="footer-text">
+        &copy; DAFA 2025 - IMC Krems
+        <button class="mute-button" style="right: 0;">🔇</button>
+    </div>
+</footer>
+
+
+<!--Script must be at the end of the file!-->
+<!--link to javascript-->
+<script src="/scripts/global.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--meta data-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=user.name%> <%=user.surname%> Info</title>
+
+    <link rel="icon" type="image/x-icon" href="/resources/pictures/themes/logo.jpg"> <!--https://www.w3schools.com/html/html_favicon.asp-->
+
+    <!--link to spreadsheet-->
+    <link rel="stylesheet" href="/styles/global.css">
+
+    <!--nice google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Lexend+Giga:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<audio class="starwars-theme" autoplay loop muted>
+    <source src="/resources/soundEffects/starwars_theme.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<header>
+    <div class="navbar" style="position: absolute;">
+        <a href="/users/new" class="button-outlined-nav">create avatar</a>
+        <a href="/users" class="button-outlined-nav">community</a>
+        <a href="/" class="button-outlined-nav">home</a>
+    </div>
+</header>
+
+<main>
+    <div class="flex-container-create" style="margin-top: 50px;">
+        <div>
+            <form>
+                <h1 class="outlined-text" style="font-size: 40px;">Hi <%=user.name%>!</h1>
+                <img src="<%=user.matchedCharacter.picture%>" class="user-pics">
+                <span class="normal-text">First Name: <%=user.name%></span><br>
+                <span class="normal-text">Last Name: <%=user.surname%></span><br>
+                <span class="normal-text">Character: <%=user.matchedCharacter.name%> <%=user.matchedCharacter.surname%> (<%=user.matchedCharacter.side%> side)</span><br>
+                <span class="normal-text">Evilness Score: <%=user.matchedCharacter.evilScore%></span><br>
+                <div>
+                    <button type="button" class="button-outlined-glow-g" style="margin-top: 30px;" onclick="soundLightsaber(), showHideEditConfirmation(0, 'password-edit-invalid-0')" >Edit</button>
+                    <%if (user.role === 'client') {%>
+                        <button type="button" class="button-outlined-glow-r" style="margin-top: 30px;" onclick="soundLightsaber(), showHideDelConfirmation(0, 'password-delete-invalid-0')">Delete</button>
+                    <%}%>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="flex-container-edit">
+        <div class="intro-message">
+            <img src="/resources/pictures/characters/yoda.png" style="width:300px"><br>
+            Enter the correct password to edit <%=user.name%><br>
+            <span style="font-size:14px; color: red; display: none;" id="password-edit-invalid-0">*Wrong password!<br></span><br>
+            <a href="/users/<%=user.id%>/edit" id="go-0-edit" class="button-outlined-glow-r" style="margin-top: 30px; display: none">Confirm edit</a>
+            <input type="password" id="password-to-edit-0" name="password" class="input-field-y" placeholder="enter password..."><br>
+            <button type="button" id="cancel-field-0-edit" class="button-outlined-glow-g" style="margin-top: 30px;" onclick="showHideEditConfirmation(0, 'password-edit-invalid-0'), soundLightsaber(), closeWindow('password-to-edit-0')">Cancel</button>
+            <button type="button" id="check-field-0-edit" class="button-outlined-glow-r" style="margin-top: 30px;" onclick="soundLightsaber(), validatePasswordEdit(event, 'password-edit-invalid-0', 'password-to-edit-0', '<%=user.password%>', 'go-0-edit', 'cancel-field-0-edit', 'check-field-0-edit'), closeWindow('password-to-edit-0')">Check</button>
+        </div>
+    </div>
+
+    <div class="flex-container-delete">
+        <div class="intro-message">
+            <img src="/resources/pictures/characters/yoda.png" style="width:300px"><br>
+            Enter the correct password to delete <%=user.name%>: <br><br>
+            <span style="font-size: 14px; color: red; display: none;" id="password-delete-invalid-0">*Wrong password!<br><br></span>
+            <form action="/users/<%=user.id%>/delete" method="post">
+                <input id="go-0-delete" type="submit" class="button-outlined-glow-r" style="margin-top: 30px; display: none" value="Confirm delete">
+                <input type="password" id="password-to-delete-0" name="password" class="input-field-y" placeholder="enter password..."><br>
+                <button type="button" id="cancel-field-0-delete" class="button-outlined-glow-g" style="margin-top: 30px;" onclick="showHideDelConfirmation(0, 'password-delete-invalid-0'), soundLightsaber(), closeWindow('password-to-delete-0')">Cancel</button>
+                <button type="button" id="check-field-0-delete" class="button-outlined-glow-r" style="margin-top: 30px;" onclick="soundLightsaber(), validatePasswordDelete(event, 'password-delete-invalid-0', 'password-to-delete-0', '<%=user.password%>', 'go-0-delete', 'cancel-field-0-delete', 'check-field-0-delete'), closeWindow('password-to-delete-0')">Check</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer style="margin-bottom: 20px;">
+    <div class="footer-text">
+        &copy; DAFA 2025 - IMC Krems
+        <button class="mute-button" style="right: 0;">🔇</button>
+    </div>
+</footer>
+
+
+<!--Script must be at the end of the file!-->
+<!--link to javascript-->
+<script src="/scripts/global.js"></script>
+
+</body>
+</html>

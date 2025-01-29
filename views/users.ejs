@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--meta data-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+
+    <link rel="icon" type="image/x-icon" href="/resources/pictures/themes/logo.jpg"> <!--https://www.w3schools.com/html/html_favicon.asp-->
+
+    <!--link to spreadsheet-->
+    <link rel="stylesheet" href="/styles/global.css" />
+
+    <!--nice google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Lexend+Giga:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<audio class="starwars-theme" autoplay loop muted>
+    <source src="/resources/soundEffects/starwars_theme.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<header>
+    <div class="navbar" style="position: absolute;">
+        <a href="/users/new" class="button-outlined-nav">create avatar</a>
+        <a href="/users" class="button-outlined-nav-on-page">community</a>
+        <a href="/" class="button-outlined-nav">home</a>
+    </div>
+</header>
+
+<main>
+    <div class="flex-container-users-page">
+        <div>
+            <h1 class="outlined-text" style="margin-left: 10px; font-size: clamp(3rem, 12vw, 7rem);">Our Community</h1>
+        </div>
+        <div>
+            <div class="flex-container-users">
+                <% for (let userIndex = 0; userIndex < users.length; userIndex++) {%>
+                    <div class="one-user-<%=users[userIndex].matchedCharacter.side%>-side">
+                        <span class="user-text-first">First Name: </span>
+                        <%if (users[userIndex].role === 'admin') {%>
+                            <span class="user-text-first"><%=users[userIndex].name%>   (admin)</span><br>
+                        <%} else {%>
+                            <span class="user-text-first"><%=users[userIndex].name%></span><br>
+                        <%}%>
+                        <span class="user-text-second">Last Name: </span>
+                        <span class="user-text-second"><%=users[userIndex].surname%></span><br>
+                        <span class="user-text-second">Character (<%=users[userIndex].matchedCharacter.side%> side)</span><br>
+                        <img src="<%=users[userIndex].matchedCharacter.picture%>" class="user-pics-card" onclick="window.location.href='/users/<%=users[userIndex].id%>'"><br>
+                        <button class="button-outlined-glow-g" style="margin-top: 30px;" onclick="soundLightsaber(), showHideEditConfirmation('<%=userIndex%>', 'password-edit-invalid-<%=userIndex%>')">Edit</button>
+                        <%if (users[userIndex].role === 'client') { %>
+                            <button class="button-outlined-glow-r" style="margin-top: 30px;" onclick="soundLightsaber(), showHideDelConfirmation('<%=userIndex%>', 'password-delete-invalid-<%=userIndex%>')">Delete</button>
+                        <%}%>
+                    </div>
+                    <div class="flex-container-delete">
+                        <div class="intro-message">
+                            <img src="/resources/pictures/characters/yoda.png" style="width:300px"><br>
+                            Are you sure delete you want this?<br>
+                            <span style="font-size:14px; color: red; display: none;" id="password-delete-invalid-<%=userIndex%>">*Wrong password!<br><br></span>
+                            <form action="/users/<%=users[userIndex].id%>/delete" method="post">
+                                <input id="go-<%=userIndex%>-delete" type="submit" class="button-outlined-glow-r" style="margin-top: 30px; display: none" value="Confirm delete">
+                                <input type="password" id="password-to-delete-<%=userIndex%>" name="password" class="input-field-y" placeholder="enter password..."><br>
+                                <button type="button" id="cancel-field-<%=userIndex%>-delete" class="button-outlined-glow-g" style="margin-top: 30px;" onclick="showHideDelConfirmation('<%=userIndex%>', 'password-delete-invalid-<%=userIndex%>'), soundLightsaber(), closeWindow('password-to-delete-<%=userIndex%>')">Cancel</button>
+                                <button type="button" id="check-field-<%=userIndex%>-delete" class="button-outlined-glow-r" style="margin-top: 30px;" onclick="soundLightsaber(), validatePasswordDelete(event, 'password-delete-invalid-<%=userIndex%>', 'password-to-delete-<%=userIndex%>', '<%=users[userIndex].password%>', 'go-<%=userIndex%>-delete', 'cancel-field-<%=userIndex%>-delete', 'check-field-<%=userIndex%>-delete'), closeWindow('password-to-delete-<%=userIndex%>')">Check</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="flex-container-edit">
+                        <div class="intro-message">
+                            <img src="/resources/pictures/characters/yoda.png" style="width:300px"><br>
+                            Enter the correct password to edit <%=users[userIndex].name%><br>
+                            <span style="font-size:14px; color: red; display: none;" id="password-edit-invalid-<%=userIndex%>">*Wrong password!<br></span><br>
+                            <a href="/users/<%=users[userIndex].id%>/edit" id="go-<%=userIndex%>-edit" class="button-outlined-glow-r" style="margin-top: 30px; display: none">Confirm edit</a>
+                            <input type="password" id="password-to-edit-<%=userIndex%>" name="password" class="input-field-y" placeholder="enter password..."><br>
+                            <button type="button" id="cancel-field-<%=userIndex%>-edit" class="button-outlined-glow-g" style="margin-top: 30px;" onclick="showHideEditConfirmation('<%=userIndex%>', 'password-edit-invalid-<%=userIndex%>'), soundLightsaber(), closeWindow('password-to-edit-<%=userIndex%>')">Cancel</button><br>
+                            <button type="button" id="check-field-<%=userIndex%>-edit" class="button-outlined-glow-r" style="margin-top: 30px;" onclick="soundLightsaber(), validatePasswordEdit(event, 'password-edit-invalid-<%=userIndex%>', 'password-to-edit-<%=userIndex%>', '<%=users[userIndex].password%>', 'go-<%=userIndex%>-edit', 'cancel-field-<%=userIndex%>-edit', 'check-field-<%=userIndex%>-edit'), closeWindow('password-to-edit-<%=userIndex%>')">Check</button>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer style="margin-bottom: 20px;">
+    <div class="footer-text">
+        &copy; DAFA 2025 - IMC Krems
+        <button class="mute-button" style="right: 0;">🔇</button>
+    </div>
+</footer>
+
+<!--Script must be at the end of the file!-->
+<!--link to javascript-->
+<script src="/scripts/global.js"></script>
+
+</body>
+</html>

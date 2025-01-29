@@ -1,0 +1,19 @@
+{
+  "name": "star_match",
+  "version": "1.0.0",
+  "description": "A web project for matching Star Wars characters to users.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anna Menzel, Denis Vasilev, Aidan Ryan, Florian Köhl",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "fs": "^0.0.1-security"
+  }
+}

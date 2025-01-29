@@ -1,0 +1,201 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Jar Jar",
+      "surname": "Bjnks",
+      "title": "Darth Jar Jar",
+      "picture": "/resources/pictures/characters/darth-jar-jar.jpg",
+      "evilScore": 50,
+      "side": "dark"
+    },
+    {
+      "id": 2,
+      "name": "Sheev",
+      "surname": "Palpatine",
+      "title": "Darth Sidious",
+      "picture": "/resources/pictures/characters/darth-sidious.jpg",
+      "evilScore": 40,
+      "side": "dark"
+    },
+    {
+      "id": 3,
+      "name": "Anakin",
+      "surname": "Skywalker",
+      "picture": "/resources/pictures/characters/darth-vader.jpg",
+      "evilScore": 30,
+      "side": "dark"
+    },
+    {
+      "id": 4,
+      "name": "Boba",
+      "surname": "Fett",
+      "title": "Master Bounty Hunter",
+      "picture": "/resources/pictures/characters/boba-fett.jpg",
+      "evilScore": 20,
+      "side": "dark"
+    },
+    {
+      "id": 5,
+      "name": "Obi Wan",
+      "surname": "Kenobi",
+      "title": "Jedi Master",
+      "picture": "/resources/pictures/characters/obi-wan-kenobi.jpg",
+      "evilScore": 10,
+      "side": "good"
+    },
+    {
+      "id": 6,
+      "name": "Master",
+      "surname": "Yoda",
+      "title": "Grand Master of the Jedi Order",
+      "picture": "/resources/pictures/characters/master-yoda.jpg",
+      "evilScore": 0,
+      "side": "good"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "content": "Are you evil?",
+      "answerYes": "Yes, of course...",
+      "answerNo": "No, i don't think so...",
+      "weight": 10
+    },
+    {
+      "id": 3,
+      "content": "Do you have anger issues?",
+      "answerYes": "Hell yeah!",
+      "answerNo": "Nah, life is about self control.",
+      "weight": 10
+    },
+    {
+      "id": 5,
+      "content": "Is red your favorite color?",
+      "answerYes": "Yup, my lightsaber is red.",
+      "answerNo": "What's red?",
+      "weight": 10
+    },
+    {
+      "id": 7,
+      "content": "Would you join the dark side?",
+      "answerYes": "Join?!",
+      "answerNo": "Never.",
+      "weight": 10
+    },
+    {
+      "id": 9,
+      "content": "Do you like to be powerful?",
+      "answerYes": "There's nothing greater than power.",
+      "answerNo": "There is more important stuff.",
+      "weight": 10
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Aidan",
+      "surname": "Ryan",
+      "studentID": "24/1/0855/060",
+      "role": "admin",
+      "matchedCharacter": {
+        "id": 5,
+        "name": "Sheev",
+        "surname": "Palpatine",
+        "title": "Darth Sidious",
+        "picture": "/resources/pictures/characters/darth-sidious.jpg",
+        "evilScore": 40,
+        "side": "dark"
+      },
+      "password": "Password123!@",
+      "deleted": false
+    },
+    {
+      "id": 2,
+      "name": "Anna",
+      "surname": "Menzel",
+      "studentID": "24/1/0855/024",
+      "role": "admin",
+      "matchedCharacter": {
+        "id": 1,
+        "name": "Master",
+        "surname": "Yoda",
+        "title": "Grand Master of the Jedi Order",
+        "picture": "/resources/pictures/characters/master-yoda.jpg",
+        "evilScore": 0,
+        "side": "good"
+      },
+      "password": "Boot$trap2025!",
+      "deleted": false
+    },
+    {
+      "id": 3,
+      "name": "Denis",
+      "surname": "Vasilev",
+      "studentID": "24/1/0855/035",
+      "role": "admin",
+      "matchedCharacter": {
+        "id": 4,
+        "name": "Anakin",
+        "surname": "Skywalker",
+        "picture": "/resources/pictures/characters/darth-vader.jpg",
+        "evilScore": 30,
+        "side": "dark"
+      },
+      "password": "Rndmpass@$Denis!",
+      "deleted": false
+    },
+    {
+      "id": 4,
+      "name": "Florian",
+      "surname": "Köhl",
+      "studentID": "24/1/0855/045",
+      "role": "admin",
+      "matchedCharacter": {
+        "id": 6,
+        "name": "Jar Jar",
+        "surname": "Bjnks",
+        "title": "Darth Jar Jar",
+        "picture": "/resources/pictures/characters/darth-jar-jar.jpg",
+        "evilScore": 50,
+        "side": "dark"
+      },
+      "password": "Flo@$rianKoehl123",
+      "deleted": false
+    },
+    {
+      "id": 5,
+      "name": "Adam",
+      "surname": "Ryan",
+      "role": "client",
+      "matchedCharacter": {
+        "id": 4,
+        "name": "Boba",
+        "surname": "Fett",
+        "title": "Master Bounty Hunter",
+        "picture": "/resources/pictures/characters/boba-fett.jpg",
+        "evilScore": 20,
+        "side": "dark"
+      },
+      "password": "Testing!!!",
+      "deleted": false
+    },
+    {
+      "id": 6,
+      "name": "Sky",
+      "surname": "Morales",
+      "role": "client",
+      "matchedCharacter": {
+        "id": 5,
+        "name": "Obi Wan",
+        "surname": "Kenobi",
+        "title": "Jedi Master",
+        "picture": "/resources/pictures/characters/obi-wan-kenobi.jpg",
+        "evilScore": 10,
+        "side": "good"
+      },
+      "password": "Testing!!!",
+      "deleted": false
+    }
+  ]
+}
