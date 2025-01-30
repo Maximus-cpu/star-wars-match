@@ -19,13 +19,11 @@ function matchUserToCharacter(newUserAnswers) {
     const characters = dbData.characters;
     let evilScore = 0;
     for (let i = 0; i < newUserAnswers.length; i++) {
-        console.log("Answer:", newUserAnswers[i].answer);
         if (newUserAnswers[i].answer === true) {
             evilScore += 10;
         }
     }
     for (let matchedCharacter of characters) {
-        console.log("match Char:", matchedCharacter);
         if (evilScore === matchedCharacter.evilScore) {
             return matchedCharacter;
         }

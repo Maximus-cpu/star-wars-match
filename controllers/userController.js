@@ -38,7 +38,6 @@ function updateUser (req, res, next) {
 function editUser (req, res, next) {
     //1: get the user (the data we want to display)
     let user = userModel.getUser(req.params.id);
-    console.log("edit user response: ", user);
     //2: render the edit form
     res.render('editUser', { user });
 }
