@@ -30,6 +30,7 @@
 // * Nitpicking:
 // A client could manually enter the url to /delete or /edit, in which case the authentication would fail.
 // After entering password the text "Enter the correct password to edit Sky" still shows up before you press the check button.
+// Web Page is slow for some reason (maybe .json "database"?)
 
 // * Extra:
 // TODO: Full-Stack: When errors occur in the back-end display corresponding error page (deleting/updating admins, editing deleted users)
