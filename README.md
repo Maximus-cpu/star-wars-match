@@ -39,6 +39,7 @@ An Express.js-based web app where users answer questions to find their best-matc
 3. Create a new avatar.
 4. Answer the questions.
 5. Get your character match!
+6. (Enable audio for the page to listen to the music and sound effects)
 
 ---
 
