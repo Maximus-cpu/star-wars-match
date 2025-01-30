@@ -20,7 +20,7 @@ An Express.js-based web app where users answer questions to find their best-matc
    ```
 2. Navigate to the project directory:
    ```sh
-   cd StarMatchProject
+   cd Star_Match
    ```
 3. Install dependencies:
    ```sh
